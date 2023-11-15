@@ -5,6 +5,7 @@ import com.example.demo.exception.DoException
 import com.example.demo.exception.DoRunTimeException
 import com.example.demo.repository.PersonRepository
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
 
 @Service
@@ -25,6 +26,12 @@ class TransactionService(
     }
 
     @Transactional
+    fun requiresNewCreate() {
+        createPerson()
+        RequiresNewRunTimeException()
+    }
+
+    @Transactional
     fun createPerson(): Person {
         val person = Person(
             name = "name",
@@ -41,6 +48,11 @@ class TransactionService(
 
     @Transactional
     fun runTimeException() {
+        throw DoRunTimeException()
+    }
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    fun RequiresNewRunTimeException() {
         throw DoRunTimeException()
     }
 }

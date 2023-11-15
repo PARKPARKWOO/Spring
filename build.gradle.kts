@@ -26,6 +26,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     runtimeOnly("com.mysql:mysql-connector-j")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("net.logstash.logback:logstash-logback-encoder:6.6")
 }
 
 tasks.withType<KotlinCompile> {

@@ -33,4 +33,10 @@ class TestController(
     fun test4() {
         noTransactionService.exception()
     }
+
+    // 안생김
+    @PostMapping("/test5")
+    fun test5() {
+        transactionService.requiresNewCreate()
+    }
 }
