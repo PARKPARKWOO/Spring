@@ -12,7 +12,6 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/spring_example?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul
     username: root
     password: 1234
-
   jpa:
     hibernate:
       ddl-auto: create
@@ -20,4 +19,9 @@ spring:
     properties:
       hibernate:
         default_batch_fetch_size: 1000
+        show_sql: true
     show-sql: true
+logging:
+  level:
+    sql: debug
+    root: debug
